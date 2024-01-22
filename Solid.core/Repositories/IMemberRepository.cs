@@ -9,14 +9,14 @@ namespace Solid.Core.Repositories
 {
     public interface IMemberRepository
     {
-        List<Member> GetMembers();
+        IEnumerable<Member> GetMembers();
 
         Member GetById(int id);
 
-        void AddMember(Member member);
+        Task<Member> AddMemberAsync(Member member);
 
-        void UpdateMember(int id, Member member);
+        Task<Member> UpdateMemberAsync(int id, Member member);
 
-        void DeleteMember(int id);
+        Task<Member> DeleteMemberAsync(int id);
     }
 }

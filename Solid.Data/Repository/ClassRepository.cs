@@ -15,31 +15,38 @@ namespace Solid.Data.Repository
         {
              _context=context;
         }
-        public void AddClass(Class clss)
+        public async Task<Class> AddClassAsync(Class clss)
         {
             _context.ClassList.Add(clss);
+             await _context.SaveChangesAsync();
+            return clss;
         }
 
-        public void DeleteClass(int id)
+        public async Task<Class> DeleteClassAsync(int id)
         {
-            var tmp = _context.ClassList.Find(x => x.ClassId == id);
+            var tmp = _context.ClassList.ToList().Find(x => x.ClassId == id);
             _context.ClassList.Remove(tmp);
+             await _context.SaveChangesAsync();
+            return tmp;
         }
 
         public Class GetById(int id)
         {
-            return _context.ClassList.Find(x => x.ClassId == id);
+            return _context.ClassList.Find(id);
         }
 
-        public List<Class> GetClasses()
+        public IEnumerable<Class> GetClasses()
         {
-            return _context.ClassList;
+            return _context.ClassList.ToList();
         }
 
-        public void UpdateClass(int id, Class clss)
+        public async Task<Class> UpdateClassAsync(int id, Class clss)
         {
-            var tmp = _context.ClassList.Find(x => x.ClassId == id);
+            var tmp = _context.ClassList.ToList().Find(x => x.ClassId == id);
             tmp = clss;
+             await _context.SaveChangesAsync();
+            return clss;
+
         }
     }
 }

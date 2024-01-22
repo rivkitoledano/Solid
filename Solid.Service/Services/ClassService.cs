@@ -11,35 +11,37 @@ namespace Solid.Service.Services
 {
     public class ClassService : IClassService
     {
-        private readonly IClassRepository _classService;
+        private readonly IClassRepository _ClassRepository;
         public ClassService(IClassRepository classService)
         {
-            _classService = classService;
+            _ClassRepository = classService;
+        }
+        public async Task<Class> AddClassAsync(Class clss)
+        {
+            return await  _ClassRepository.AddClassAsync(clss);
+             
         }
 
-        public void AddClass(Class clss)
+        public async Task<Class> DeleteClassAsync(int id)
         {
-            _classService.AddClass(clss);
-        }
-
-        public void DeleteClass(int id)
-        {
-            _classService.DeleteClass(id);
+         return await  _ClassRepository.DeleteClassAsync(id);
+            
         }
 
         public Class GetById(int id)
         {
-            return _classService.GetById(id);
+            return _ClassRepository.GetById(id);
         }
 
-        public List<Class> GetClasses()
+        public IEnumerable<Class> GetClasses()
         {
-            return _classService.GetClasses();
+            return _ClassRepository.GetClasses();
         }
 
-        public void UpdateClass(int id, Class clss)
+        public async Task<Class> UpdateClassAsync(int id, Class clss)
         {
-            _classService.UpdateClass(id, clss);    
+           return  await _ClassRepository.UpdateClassAsync(id, clss);  
+            
         }
     }
 }

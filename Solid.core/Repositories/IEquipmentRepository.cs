@@ -9,14 +9,14 @@ namespace Solid.Core.Repositories
 {
     public interface IEquipmentRepository
     {
-        List<Equipment> GetEquipments();
+        IEnumerable<Equipment> GetEquipments();
 
         Equipment GetById(int id);
 
-        void AddEquipment(Equipment equipment);
+        Task <Equipment> AddEquipmentAsync(Equipment equipment);
 
-        void UpdateEquipment(int id, Equipment equipment);
+        Task<Equipment> UpdateEquipmentAsync(int id, Equipment equipment);
 
-        void DeleteEquipment(int id);
+        Task<Equipment> DeleteEquipmentAsync(int id);
     }
 }

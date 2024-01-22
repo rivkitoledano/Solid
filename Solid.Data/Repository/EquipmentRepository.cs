@@ -15,32 +15,40 @@ namespace Solid.Data.Repository
         {
             _context = context;
         }
-        public void AddEquipment(Equipment equipment)
+        public Task<Equipment> AddEquipmentAsync(Equipment equipment)
         {
             _context.EquipmentList.Add(equipment);
+            await _context.SaveChangesAsync();
+            return equipment;
+
         }
 
-        public void DeleteEquipment(int id)
+        public async Task<Equipment> DeleteEquipmentAsync(int id)
         {
-            var tmp = _context.EquipmentList.Find(x=>x.EquipmentId==id);
-           _context.EquipmentList.Remove(tmp);
+            var tmp = _context.EquipmentList.ToList().Find(x=>x.EquipmentId==id);
+            _context.EquipmentList.Remove(tmp);
+          await  _context.SaveChangesAsync();
+            return tmp;
 
         }
 
         public Equipment GetById(int id)
         {
-            return _context.EquipmentList.Find(x => x.EquipmentId == id);
+            return _context.EquipmentList.ToList().Find(x => x.EquipmentId == id);
         }
 
-        public List<Equipment> GetEquipments()
+        public IEnumerable<Equipment> GetEquipments()
         {
-            return _context.EquipmentList;
+            return _context.EquipmentList.ToList();
         }
 
-        public void UpdateEquipment(int id, Equipment equipment)
+        public async Task<Equipment> UpdateEquipmentAsync(int id, Equipment equipment)
         {
-            var tmp = _context.EquipmentList.Find(x => x.EquipmentId == id);
+            var tmp = _context.EquipmentList.ToList().Find(x => x.EquipmentId == id);
             tmp = equipment;
+            await _context.SaveChangesAsync();
+            return equipment;
+
         }
     }
 }

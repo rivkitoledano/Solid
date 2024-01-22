@@ -1,4 +1,5 @@
-﻿using Solid.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Solid.Core.Entities;
 using Solid.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,33 +16,40 @@ namespace Solid.Data.Repository
         {
             _context = context;
         }
-        public void AddMember(Member member)
+        public async Task<Member> AddMemberAsync(Member member)
         {
             _context.MemberList.Add(member);
+            await _context.SaveChangesAsync();
+            return member;
         }
 
-        public void DeleteMember(int id)
+        public async Task<Member> DeleteMemberAsync(int id)
         {
-            var tmp =_context.MemberList.Find(x=>x.MemberId==id);
+            var tmp =_context.MemberList.ToList().Find(x=>x.MemberId==id);
             _context.MemberList.Remove(tmp);
+            await _context.SaveChangesAsync();
+            return tmp; 
 
         }
 
         public Member GetById(int id)
         {
-            return _context.MemberList.Find(x => x.MemberId == id);
+            return _context.MemberList.ToList().Find(x => x.MemberId == id);
             
         }
 
-        public List<Member> GetMembers()
+        public IEnumerable<Member> GetMembers()
         {
-            return _context.MemberList;
+            return _context.MemberList.Include(cl=>cl.clss);
         }
 
-        public void UpdateMember(int id, Member member)
+        public async Task<Member> UpdateMemberAsync(int id, Member member)
         {
-            var tmp = _context.MemberList.Find(x => x.MemberId == id);
+            var tmp = _context.MemberList.ToList().Find(x => x.MemberId == id);
             tmp = member;
+            await _context.SaveChangesAsync();
+            return member;
+
         }
     }
 }

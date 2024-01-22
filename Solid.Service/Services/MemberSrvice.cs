@@ -18,15 +18,15 @@ namespace Solid.Service.Services
             _memberService = memberService;      
         }
 
-        public void AddMember(Member member)
+        public async Task<Member> AddMemberAsync(Member member)
         {
-            _memberService.AddMember(member);
+         return   await _memberService.AddMemberAsync(member);
                     
         }
 
-        public void DeleteMember(int id)
+        public async Task<Member> DeleteMemberAsync(int id)
         {
-            _memberService.DeleteMember(id);
+          return await  _memberService.DeleteMemberAsync(id);
         }
 
         public Member GetById(int id)
@@ -34,15 +34,15 @@ namespace Solid.Service.Services
           return  _memberService.GetById(id); 
         }
 
-        public List<Member> GetMembers()
+        public IEnumerable<Member> GetMembers()
         {
           return  _memberService.GetMembers();    
         
         }
 
-        public void UpdateMember(int id, Member member)
+        public async Task<Member> UpdateMemberAsync(int id, Member member)
         {
-            _memberService.UpdateMember(id, member);
+          return  await _memberService.UpdateMemberAsync(id, member);
         }
     }
 }

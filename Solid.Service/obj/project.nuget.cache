@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wsvnP3XQdQp5tZq7NA8Qcvf5wfbjmnhoT69EcSxyb8MCuL0YuwxYalP7D6+TMIJOMMc0f1jD2QJrAiysjUrymQ==",
+  "dgSpecHash": "2uux3GvonkWupPB4QvycAVEyfvqaRVTUinXF7q23JDhPf04QHjQOOv9hdyf60yEZqSrniUyqpQ5N05AH6qyFzg==",
   "success": true,
   "projectFilePath": "C:\\Users\\user1\\Documents\\רבקי למודים\\.net core\\Solid\\Solid.Service\\Solid.Service.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\user1\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

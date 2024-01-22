@@ -17,14 +17,14 @@ namespace Solid.Service.Services
             _equipmentService = equipmentService;
         }
 
-        public void AddEquipment(Equipment equipment)
+        public async Task<Equipment> AddEquipmentAsync(Equipment equipment)
         {
-            _equipmentService.AddEquipment(equipment);
+           return await _equipmentService.AddEquipmentAsync(equipment);
         }
 
-        public void DeleteEquipment(int id)
+        public async Task<Equipment> DeleteEquipmentAsync(int id)
         {
-            _equipmentService.DeleteEquipment(id);
+         return await   _equipmentService.DeleteEquipmentAsync(id);
         }
 
         public Equipment GetById(int id)
@@ -33,13 +33,14 @@ namespace Solid.Service.Services
 
         }
 
-        public List<Equipment> GetEquipments()
+        public IEnumerable<Equipment> GetEquipments()
         {
            return _equipmentService.GetEquipments();
         }
 
-        public void UpdateEquipment(int id, Equipment equipment)
-        { _equipmentService.UpdateEquipment(id, equipment);
+        public async Task<Equipment> UpdateEquipmentAsync(int id, Equipment equipment)
+        {
+           return await _equipmentService.UpdateEquipmentAsync(id, equipment);
         }
     }
 }

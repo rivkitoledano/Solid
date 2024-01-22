@@ -9,18 +9,15 @@ namespace Solid.Core.Repositories
 {
     public interface IClassRepository
     {
-        List<Class> GetClasses();
+        IEnumerable<Class> GetClasses();
 
         Class GetById(int id);
 
-        void AddClass(Class clss);
+        Task<Class> AddClassAsync(Class clss);
 
-        void UpdateClass(int id, Class clss);
+        Task<Class> UpdateClassAsync(int id, Class clss);
 
-        void DeleteClass(int id); 
-
-        
-
+        Task<Class> DeleteClassAsync(int id); 
 
     }
 }

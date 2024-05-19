@@ -45,11 +45,25 @@ namespace Solid.Data.Repository
 
         public async Task<Member> UpdateMemberAsync(int id, Member member)
         {
-            var tmp = _context.MemberList.ToList().Find(x => x.MemberId == id);
-            tmp = member;
-            await _context.SaveChangesAsync();
-            return member;
+            // מצא את החבר בבסיס הנתונים לפי ה-ID
+            var existingMember = await _context.MemberList.FindAsync(id);
 
+            // בדוק אם החבר נמצא
+            if (existingMember == null)
+            {
+                return null; // או זרוק חריגה, בהתאם למה שנכון למערכת שלך
+            }
+
+            // עדכן את הערכים של החבר הקיים
+            existingMember.Name = member.Name;
+            existingMember.Age = member.Age;
+            existingMember.classId = member.classId;
+
+            // שמור את השינויים בבסיס הנתונים
+            await _context.SaveChangesAsync();
+
+            return existingMember;
         }
+
     }
 }

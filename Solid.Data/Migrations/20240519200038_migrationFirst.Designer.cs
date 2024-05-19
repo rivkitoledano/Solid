@@ -11,8 +11,8 @@ using Solid.Data;
 namespace Solid.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240111235713_init")]
-    partial class init
+    [Migration("20240519200038_migrationFirst")]
+    partial class migrationFirst
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,27 @@ namespace Solid.Data.Migrations
                     b.HasKey("EquipmentId");
 
                     b.ToTable("EquipmentList");
+                });
+
+            modelBuilder.Entity("Solid.Core.Entities.Login", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLogin");
                 });
 
             modelBuilder.Entity("Solid.Core.Entities.Member", b =>

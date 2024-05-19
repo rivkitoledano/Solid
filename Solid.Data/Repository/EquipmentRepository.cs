@@ -15,7 +15,7 @@ namespace Solid.Data.Repository
         {
             _context = context;
         }
-        public Task<Equipment> AddEquipmentAsync(Equipment equipment)
+        public async Task<Equipment> AddEquipmentAsync(Equipment equipment)
         {
             _context.EquipmentList.Add(equipment);
             await _context.SaveChangesAsync();
@@ -44,11 +44,25 @@ namespace Solid.Data.Repository
 
         public async Task<Equipment> UpdateEquipmentAsync(int id, Equipment equipment)
         {
-            var tmp = _context.EquipmentList.ToList().Find(x => x.EquipmentId == id);
-            tmp = equipment;
-            await _context.SaveChangesAsync();
-            return equipment;
+            // מצא את הציוד בבסיס הנתונים לפי ה-ID
+            var existingEquipment = await _context.EquipmentList.FindAsync(id);
 
+            // בדוק אם הציוד נמצא
+            if (existingEquipment == null)
+            {
+                return null; // או זרוק חריגה, בהתאם למה שנכון למערכת שלך
+            }
+
+            // עדכן את הערכים של הציוד הקיים
+            existingEquipment.Name = equipment.Name;
+            existingEquipment.Category = equipment.Category;
+            existingEquipment.AmountItem = equipment.AmountItem;
+
+            // שמור את השינויים בבסיס הנתונים
+            await _context.SaveChangesAsync();
+
+            return existingEquipment;
         }
+
     }
 }

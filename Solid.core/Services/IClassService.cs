@@ -18,4 +18,5 @@ namespace Solid.Core.Services
         Task<Class> DeleteClassAsync(int id);
 
     }
+
 }

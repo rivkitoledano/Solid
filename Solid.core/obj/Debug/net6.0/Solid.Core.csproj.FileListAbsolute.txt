@@ -10,3 +10,4 @@ C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.core\obj\De
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.core\obj\Debug\net6.0\refint\Solid.Core.dll
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.core\obj\Debug\net6.0\Solid.Core.pdb
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.core\obj\Debug\net6.0\ref\Solid.Core.dll
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.core\obj\Debug\net6.0\Solid.Core.sourcelink.json

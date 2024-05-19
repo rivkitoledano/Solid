@@ -8,6 +8,7 @@ using AutoMapper;
 using Solid.Core.Dto;
 using Solid.API.Models;
 using AutoMapper.Execution;
+using Microsoft.AspNetCore.Authorization;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 
@@ -16,6 +17,8 @@ namespace Solid.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class ClassesController : ControllerBase
     {
         private readonly IClassService _classService;
@@ -32,8 +35,10 @@ namespace Solid.API.Controllers
         public IActionResult Get()
         {
             var classes = _classService.GetClasses();
+
+
             var classesDto= _mapper.Map<IEnumerable<ClassDto>>(classes);
-            return Ok(classesDto);
+            return Ok(classes);
         }
 
         // GET api/<Class>/5

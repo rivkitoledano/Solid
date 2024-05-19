@@ -4,7 +4,7 @@
 
 namespace Solid.Data.Migrations
 {
-    public partial class init : Migration
+    public partial class migrationFirst : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -40,6 +40,20 @@ namespace Solid.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EquipmentList", x => x.EquipmentId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserLogin",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserLogin", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -105,6 +119,9 @@ namespace Solid.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "MemberList");
+
+            migrationBuilder.DropTable(
+                name: "UserLogin");
 
             migrationBuilder.DropTable(
                 name: "EquipmentList");

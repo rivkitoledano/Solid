@@ -13,10 +13,10 @@ namespace Solid.Data
         public DbSet<Class> ClassList { get; set; }
         public DbSet<Equipment> EquipmentList { get; set; }
         public DbSet<Member> MemberList { get; set; }
-
+        public DbSet<Login> UserLogin { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Gym_db");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=Gym_Managment_db");
         }
 
     }   

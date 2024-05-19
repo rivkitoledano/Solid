@@ -25,7 +25,6 @@ C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Deb
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets.development.json
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\scopedcss\bundle\Solid.API.styles.css
-C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\Solid.API.csproj.CopyComplete
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\Solid.API.dll
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\refint\Solid.API.dll
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\Solid.API.pdb
@@ -69,3 +68,12 @@ C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Deb
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\Solid.API.sourcelink.json
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets\msbuild.Solid.API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets\msbuild.build.Solid.API.props
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Solid.API.props
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Solid.API.props
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\user1\Documents\רבקי למודים\.net core\Solid\Solid.API\obj\Debug\net6.0\Solid.API.csproj.Up2Date

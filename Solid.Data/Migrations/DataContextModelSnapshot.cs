@@ -97,6 +97,27 @@ namespace Solid.Data.Migrations
                     b.ToTable("EquipmentList");
                 });
 
+            modelBuilder.Entity("Solid.Core.Entities.Login", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserLogin");
+                });
+
             modelBuilder.Entity("Solid.Core.Entities.Member", b =>
                 {
                     b.Property<int>("MemberId")

@@ -1,4 +1,5 @@
-﻿using Solid.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Solid.Core.Entities;
 using Solid.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -37,16 +38,43 @@ namespace Solid.Data.Repository
 
         public IEnumerable<Class> GetClasses()
         {
-            return _context.ClassList.ToList();
+            return _context.ClassList.Include(ep => ep.Members).ToList();
         }
 
         public async Task<Class> UpdateClassAsync(int id, Class clss)
         {
-            var tmp = _context.ClassList.ToList().Find(x => x.ClassId == id);
-            tmp = clss;
-             await _context.SaveChangesAsync();
-            return clss;
+            // Find the class by id
+            var existingClass = await _context.ClassList.FindAsync(id);
 
+            // Check if the class exists
+            if (existingClass == null)
+            {
+                throw new KeyNotFoundException($"Class with id {id} not found.");
+            }
+
+            // Update the properties
+            existingClass.Day = clss.Day;
+            existingClass.Hour = clss.Hour;
+            existingClass.NumOfParticipants = clss.NumOfParticipants;
+            existingClass.Guide = clss.Guide;
+            existingClass.Name = clss.Name;
+            existingClass.RomNum = clss.RomNum;
+            existingClass.AgeAppropriate = clss.AgeAppropriate;
+            existingClass.Members = clss.Members;
+
+            try
+            {
+                // Save changes to the database
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                // Handle any database update exceptions here
+                throw new Exception("An error occurred while updating the class.", ex);
+            }
+
+            return existingClass;
         }
+
     }
 }

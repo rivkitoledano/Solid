@@ -35,6 +35,8 @@ namespace Solid.Service.Services
 
         public IEnumerable<Class> GetClasses()
         {
+            var x = _ClassRepository.GetClasses();
+            Console.WriteLine(x);
             return _ClassRepository.GetClasses();
         }
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Solid.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb05f0c114bff20e334df1494827261a81dc2d69")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+756a44eee95e5f7c7622b0d78b797917c029c2a6")]
 [assembly: System.Reflection.AssemblyProductAttribute("Solid.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Solid.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
